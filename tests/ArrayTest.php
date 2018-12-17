@@ -3,6 +3,7 @@
 namespace Dryist;
 
 use ArrayIterator;
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
 class ArrayTest extends TestCase
@@ -18,6 +19,29 @@ class ArrayTest extends TestCase
             })()],
             [new ArrayIterator([1, 2, 3])],
         ];
+    }
+
+    public function testItCanCombineIterables(): void
+    {
+        $keys = ["a", "b", "c"];
+        $values = [1, 2, 3];
+
+        $this->assertEquals(["a" => 1, "b" => 2, "c" => 3], resolve(combine($keys, $values)));
+    }
+
+    public function testItCannotCombineMismatchedIterables(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+
+        resolve(combine([1, 2, 3], ["a"]));
+    }
+
+    /** @dataProvider dataIterables */
+    public function testItCanCountIterables(iterable $items): void
+    {
+        // Using full namespace for count() to avoid PHPStan warning:
+        // https://github.com/phpstan/phpstan/issues/786
+        $this->assertEquals(3, \Dryist\count($items));
     }
 
     /** @dataProvider dataIterables */

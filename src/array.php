@@ -2,6 +2,36 @@
 
 namespace Dryist;
 
+use InvalidArgumentException;
+
+/**
+ * Count the number of items.
+ *
+ * @see https://php.net/iterator_count
+ */
+function count(iterable $items): int
+{
+    $total = 0;
+    foreach ($items as $_) {
+        $total++;
+    }
+    return $total;
+}
+
+/**
+ * Combine a list of keys and a list of values into a map.
+ */
+function combine(iterable $keys, iterable $values): iterable
+{
+    if (count($keys) !== count($values)) {
+        throw new InvalidArgumentException("Count of keys and values do not match");
+    }
+
+    foreach ($keys as $key) {
+        yield $key => \current($values);
+        \next($values);
+    }
+}
 
 /**
  * Resolve a list of keys from a map.
@@ -117,7 +147,7 @@ function takeKey(iterable $items, callable $accept): iterable
 function takeKeys(iterable $items, array $keys): iterable
 {
     return takeKey($items, function ($key) use ($keys): bool {
-        return in_array($key, $keys, true);
+        return \in_array($key, $keys, true);
     });
 }
 
