@@ -98,11 +98,11 @@ function mapKey(iterable $items, callable $modify): iterable
  */
 function resolve(iterable $items): array
 {
-    $output = [];
-    foreach ($items as $key => $value) {
-        $output[$key] = $value;
+    if (is_array($items)) {
+        return $items;
     }
-    return $output;
+
+    return \iterator_to_array($items);
 }
 
 /**
