@@ -32,7 +32,8 @@
     "autoload": {
         "files": [
             "src/algebra.php",
-            "src/array.php"
+            "src/array.php",
+            "src/tool.php"
         ]
     },
     "autoload-dev": {
