@@ -23,6 +23,7 @@ There are several categories of functions:
 
 - [algebra](#algebra) - some common functional language utilities
 - [array](#array) - helpers to work with arrays and iterators
+- [tool](#tool) - other various tools
 
 There are a number of other packages that provide compatible (and/or similar)
 utility functions, including:
@@ -240,4 +241,21 @@ $map = ['a' => 1, 'b' => 2, 'c' => 3];
 $list = values($map);
 
 assert(resolve($list) === [1, 2, 3]);
+```
+
+### Tool
+
+#### make()
+
+Create a modifier that constructs an object.
+
+```php
+use function Dryist\make;
+use function Dryist\map;
+use function Dryist\resolve;
+
+$list = [[1, 2, 3], [4, 5], [6]];
+$list = map($list, make(ArrayIterator::class));
+
+assert(resolve($list)[0] instanceof ArrayIterator);
 ```

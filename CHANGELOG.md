@@ -1,5 +1,11 @@
 # Dryist Functions Changelog
 
+## 0.2.1 - 2018-12-26
+
+### Added
+
+- Added documentation for make()
+
 ## 0.2.0 - 2018-12-26
 
 ### Added
