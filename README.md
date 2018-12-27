@@ -72,6 +72,19 @@ assert(identity('foo') === 'foo');
 
 *This function is also aliased as `Dryist\id`.*
 
+#### invert()
+
+Creates an inverted predicate:
+
+```php
+use function Dryist\invert;
+
+$notNull = invert('is_null');
+
+assert($notNull(42) === true);
+assert($notNull(null) === true);
+```
+
 ### Array
 
 All of the array functions accept [`iterable`][iterable] variables, including
