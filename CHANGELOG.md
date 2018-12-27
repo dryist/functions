@@ -1,8 +1,14 @@
 # Dryist Functions Changelog
 
-## 0.2.1 - 2018-12-26
+## 0.3.0 - 2018-12-27
 
 ### Added
+
+- Added stringify() tool
+
+## 0.2.1 - 2018-12-26
+
+### Fixed
 
 - Added documentation for make()
 

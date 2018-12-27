@@ -259,3 +259,14 @@ $list = map($list, make(ArrayIterator::class));
 
 assert(resolve($list)[0] instanceof ArrayIterator);
 ```
+
+#### stringify()
+
+Convert a value to a string, unless it is null.
+
+```php
+use function Dryist\stringify;
+
+assert(stringify(null) === null);
+assert(stringify(42) === "42");
+```

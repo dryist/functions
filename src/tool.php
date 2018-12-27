@@ -13,3 +13,17 @@ function make(string $class): callable
         return new $class(...$params);
     };
 }
+
+/**
+ * Get the string representation of a value, without modifing nulls.
+ *
+ * @param mixed $value
+ */
+function stringify($value): ?string
+{
+    if ($value === null) {
+        return null;
+    }
+
+    return (string) $value;
+}
