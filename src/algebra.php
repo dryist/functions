@@ -55,3 +55,15 @@ function identity($x)
 {
     return $x;
 }
+
+/**
+ * Create a negated predicate.
+ *
+ * @return callable (y) => ! x(y)
+ */
+function invert(callable $x): callable
+{
+    return function ($y) use ($x): bool {
+        return ! $x($y);
+    };
+}

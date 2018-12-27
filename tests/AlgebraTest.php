@@ -26,4 +26,13 @@ class AlgebraTest extends TestCase
 
         $this->assertEquals("Hello, world", compose("ucfirst", "strtolower")($value));
     }
+
+    public function testItCanInvert(): void
+    {
+        $isNull = 'is_null';
+        $isNotNull = invert($isNull);
+
+        $this->assertTrue($isNotNull(1));
+        $this->assertFalse($isNotNull(null));
+    }
 }

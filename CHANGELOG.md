@@ -5,6 +5,7 @@
 ### Added
 
 - Added stringify() tool
+- Added invert() algebra
 
 ## 0.2.1 - 2018-12-26
 
