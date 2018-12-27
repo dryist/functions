@@ -17,4 +17,11 @@ class ToolTest extends TestCase
         $this->assertCount(3, $values[0]);
         $this->assertInstanceOf(ArrayIterator::class, $values[0]);
     }
+
+    public function testStringify(): void
+    {
+        $this->assertNull(stringify(null));
+        $this->assertEquals("42", stringify(42));
+        $this->assertEquals("foo", stringify("foo"));
+    }
 }
