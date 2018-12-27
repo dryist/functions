@@ -34,6 +34,42 @@ function combine(iterable $keys, iterable $values): iterable
 }
 
 /**
+ * Limit items by a predicate applied to value.
+ *
+ * Example predicate:
+ *
+ *     function ($value): bool {
+ *         return $value > 1;
+ *     }
+ */
+function filter(iterable $items, callable $accept): iterable
+{
+    foreach ($items as $key => $item) {
+        if ($accept($item)) {
+            yield $key => $item;
+        }
+    }
+}
+
+/**
+ * Limit items by a predicate applied to key.
+ *
+ * Example predicate:
+ *
+ *     function ($key): bool {
+ *         return $key % 2 === 0;
+ *     }
+ */
+function filterKey(iterable $items, callable $accept): iterable
+{
+    foreach ($items as $key => $item) {
+        if ($accept($key)) {
+            yield $key => $item;
+        }
+    }
+}
+
+/**
  * Resolve a list of keys from a map.
  */
 function keys(iterable $items): iterable
@@ -106,47 +142,11 @@ function resolve(iterable $items): array
 }
 
 /**
- * Limit items by a predicate applied to value.
- *
- * Example predicate:
- *
- *     function ($value): bool {
- *         return $value > 1;
- *     }
+ * Limit items in a map by a list of keys.
  */
-function take(iterable $items, callable $accept): iterable
+function take(iterable $items, array $keys): iterable
 {
-    foreach ($items as $key => $item) {
-        if ($accept($item)) {
-            yield $key => $item;
-        }
-    }
-}
-
-/**
- * Limit items by a predicate applied to key.
- *
- * Example predicate:
- *
- *     function ($key): bool {
- *         return $key % 2 === 0;
- *     }
- */
-function takeKey(iterable $items, callable $accept): iterable
-{
-    foreach ($items as $key => $item) {
-        if ($accept($key)) {
-            yield $key => $item;
-        }
-    }
-}
-
-/**
- * Limit items by a list of keys.
- */
-function takeKeys(iterable $items, array $keys): iterable
-{
-    return takeKey($items, function ($key) use ($keys): bool {
+    return filterKey($items, function ($key) use ($keys): bool {
         return \in_array($key, $keys, true);
     });
 }

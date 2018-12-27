@@ -72,18 +72,7 @@ class ArrayTest extends TestCase
         $this->assertEquals([1, 2, 3], resolve(keys($items)));
     }
 
-    public function testItCanTakeByKeys(): void
-    {
-        $items = [
-            "foo" => "foo",
-            "bar" => "bar",
-            "baz" => "baz",
-        ];
-
-        $this->assertEquals(["foo"], resolve(keys(takeKeys($items, ["foo"]))));
-    }
-
-    public function testItCanTakeByValue(): void
+    public function testItCanFilterByValue(): void
     {
         $items = [0, 1, 2, 3, 4];
 
@@ -91,6 +80,17 @@ class ArrayTest extends TestCase
             return $value % 2 === 0;
         };
 
-        $this->assertEquals([0, 2, 4], resolve(values(take($items, $accept))));
+        $this->assertEquals([0, 2, 4], resolve(values(filter($items, $accept))));
+    }
+
+    public function testItCanTakeByKey(): void
+    {
+        $items = [
+            "foo" => "foo",
+            "bar" => "bar",
+            "baz" => "baz",
+        ];
+
+        $this->assertEquals(["foo"], resolve(keys(take($items, ["foo"]))));
     }
 }
