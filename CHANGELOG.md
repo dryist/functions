@@ -7,6 +7,12 @@
 - Added stringify() tool
 - Added invert() algebra
 
+### Changed
+
+- Renamed take() to filter()
+- Renamed takeKey() to filterKey()
+- Renamed takeKeys() to take()
+
 ## 0.2.1 - 2018-12-26
 
 ### Fixed

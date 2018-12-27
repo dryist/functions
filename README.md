@@ -119,6 +119,54 @@ $map = combine($keys, $values);
 assert(resolve($map) === ['city' => 'London', 'country' => 'England']);
 ```
 
+#### filter()
+
+Filter a list or map by a predicate of the value:
+
+```php
+use function Dryist\filter;
+use function Dryist\resolve;
+use function Dryist\values;
+
+$positive = function (int $value): bool {
+    return $value > 0;
+};
+
+$list = [-100, 0, 100];
+$list = filter($list, $positive);
+
+// Drop keys
+$list = values($list);
+
+assert(resolve($list) === [100]);
+```
+
+#### filterKey()
+
+Filter a list or map by a predicate of the key:
+
+```php
+use function Dryist\filterKey;
+use function Dryist\resolve;
+use function Dryist\values;
+
+$even = function (int $value): bool {
+    return $value % 2 === 0;
+};
+
+$map = [13 => 'a', 16 => 'b', 22 => 'c'];
+$map = filterKey($map, $even);
+
+// Drop keys
+$list = values($map);
+
+assert(resolve($list) === ['b', 'c']);
+```
+
+Related functions:
+
+- [take](#take)
+
 #### keys()
 
 Read the keys from a map into a list:
@@ -188,56 +236,14 @@ An alias for [`iterator_to_array`](https://php.net/iterator_to_array).
 
 #### take()
 
-Filter a list or map by a predicate of the value:
+Take some values from a map by a list of keys:
 
 ```php
+use function Dryist\resolve;
 use function Dryist\take;
-use function Dryist\resolve;
-
-$positive = function (int $value): bool {
-    return $value > 0;
-};
-
-$list = [-100, 0, 100];
-$list = take($list, $positive);
-
-// Drop keys
-$list = values($list);
-
-assert(resolve($list) === [100]);
-```
-
-#### takeKey()
-
-Filter a list or map by a predicate of the key:
-
-```php
-use function Dryist\takeKey;
-use function Dryist\resolve;
-
-$even = function (int $value): bool {
-    return $value % 2 === 0;
-};
-
-$map = [13 => 'a', 16 => 'b', 22 => 'c'];
-$map = takeKey($map, $even);
-
-// Drop keys
-$list = values($map);
-
-assert(resolve($list) === ['b', 'c']);
-```
-
-#### takeKeys()
-
-Filter a map by a list of allowed keys:
-
-```php
-use function Dryist\takeKeys;
-use function Dryist\resolve;
 
 $map = ['name' => 'Cassie', 'friends' => 152, 'age' => 39];
-$map = takeKeys($map, ['name']);
+$map = take($map, ['name']);
 
 assert(resolve($map) === ['name' => 'Cassie']);
 ```
