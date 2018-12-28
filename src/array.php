@@ -8,6 +8,10 @@ use InvalidArgumentException;
  * Count the number of items.
  *
  * @see https://php.net/iterator_count
+ *
+ * @param iterable $items
+ *
+ * @return int
  */
 function count(iterable $items): int
 {
@@ -20,6 +24,11 @@ function count(iterable $items): int
 
 /**
  * Combine a list of keys and a list of values into a map.
+ *
+ * @param iterable $keys
+ * @param iterable $values
+ *
+ * @return iterable
  */
 function combine(iterable $keys, iterable $values): iterable
 {
@@ -41,6 +50,11 @@ function combine(iterable $keys, iterable $values): iterable
  *     function ($value): bool {
  *         return $value > 1;
  *     }
+ *
+ * @param iterable $items
+ * @param callable $accept
+ *
+ * @return iterable
  */
 function filter(iterable $items, callable $accept): iterable
 {
@@ -59,6 +73,11 @@ function filter(iterable $items, callable $accept): iterable
  *     function ($key): bool {
  *         return $key % 2 === 0;
  *     }
+ *
+ * @param iterable $items
+ * @param callable $accept
+ *
+ * @return iterable
  */
 function filterKey(iterable $items, callable $accept): iterable
 {
@@ -71,6 +90,10 @@ function filterKey(iterable $items, callable $accept): iterable
 
 /**
  * Resolve a list of keys from a map.
+ *
+ * @param iterable $items
+ *
+ * @return iterable
  */
 function keys(iterable $items): iterable
 {
@@ -87,6 +110,11 @@ function keys(iterable $items): iterable
  *     function ($value) {
  *         return $value;
  *     }
+ *
+ * @param iterable $items
+ * @param callable $modify
+ *
+ * @return iterable
  */
 function map(iterable $items, callable $modify): iterable
 {
@@ -103,6 +131,11 @@ function map(iterable $items, callable $modify): iterable
  *     function ($key, $value) {
  *         return $value;
  *     }
+ *
+ * @param iterable $items
+ * @param callable $modify
+ *
+ * @return iterable
  */
 function mapBoth(iterable $items, callable $modify): iterable
 {
@@ -119,6 +152,11 @@ function mapBoth(iterable $items, callable $modify): iterable
  *     function ($key) {
  *         return $key;
  *     }
+ *
+ * @param iterable $items
+ * @param callable $modify
+ *
+ * @return iterable
  */
 function mapKey(iterable $items, callable $modify): iterable
 {
@@ -131,6 +169,10 @@ function mapKey(iterable $items, callable $modify): iterable
  * Resolve an iterable to an array.
  *
  * @link https://php.net/iterator_to_array
+ *
+ * @param iterable $items
+ *
+ * @return array
  */
 function resolve(iterable $items): array
 {
@@ -143,6 +185,11 @@ function resolve(iterable $items): array
 
 /**
  * Limit items in a map by a list of keys.
+ *
+ * @param iterable $items
+ * @param array    $keys
+ *
+ * @return iterable
  */
 function take(iterable $items, array $keys): iterable
 {
@@ -153,6 +200,10 @@ function take(iterable $items, array $keys): iterable
 
 /**
  * Resolve a map into a list.
+ *
+ * @param iterable $items
+ *
+ * @return iterable
  */
 function values(iterable $items): iterable
 {

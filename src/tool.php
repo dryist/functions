@@ -5,6 +5,8 @@ namespace Dryist;
 /**
  * Create a modifier that constructs an object.
  *
+ * @param string $class
+ *
  * @return callable (...) => new class(...)
  */
 function make(string $class): callable
@@ -18,6 +20,8 @@ function make(string $class): callable
  * Get the string representation of a value, without modifing nulls.
  *
  * @param mixed $value
+ *
+ * @return string|null
  */
 function stringify($value): ?string
 {

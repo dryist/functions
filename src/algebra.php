@@ -24,6 +24,9 @@ function always($x): callable
  *
  * Also known as the Substition or "S" combinator.
  *
+ * @param callable $x
+ * @param callable $y
+ *
  * @return callable (z) => x(y(z))
  */
 function compose(callable $x, callable $y): callable
@@ -35,6 +38,8 @@ function compose(callable $x, callable $y): callable
 
 /**
  * @alias identity()
+ *
+ * @return mixed
  */
 function id($x)
 {
@@ -58,6 +63,8 @@ function identity($x)
 
 /**
  * Create a negated predicate.
+ *
+ * @param callable $x
  *
  * @return callable (y) => ! x(y)
  */
