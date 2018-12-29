@@ -1,6 +1,6 @@
 # Dryist Functions Changelog
 
-## 0.3.0 - 2018-12-27
+## 0.3.0 - 2018-12-29
 
 ### Added
 
