@@ -13,6 +13,7 @@ function make(string $class): callable
         return new $class(...$params);
     };
 }
+const make = '\Dryist\make';
 
 /**
  * Get the string representation of a value, without modifing nulls.
@@ -27,3 +28,4 @@ function stringify($value): ?string
 
     return (string) $value;
 }
+const stringify = '\Dryist\stringify';

@@ -10,4 +10,10 @@
     <!-- enable PSR-1 and PSR-2 checking -->
     <rule ref="PSR1"/>
     <rule ref="PSR2"/>
+
+    <rule ref="Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase">
+        <exclude-pattern>*/src/array.php</exclude-pattern>
+        <exclude-pattern>*/src/algebra.php</exclude-pattern>
+        <exclude-pattern>*/src/tool.php</exclude-pattern>
+    </rule>
 </ruleset>

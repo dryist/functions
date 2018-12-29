@@ -25,6 +25,9 @@ There are several categories of functions:
 - [array](#array) - helpers to work with arrays and iterators
 - [tool](#tool) - other various tools
 
+All functions have a constant that refers the fully qualified function name.
+These constants can be used for composed or piped operations.
+
 There are a number of other packages that provide compatible (and/or similar)
 utility functions, including:
 
