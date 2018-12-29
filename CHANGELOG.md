@@ -1,5 +1,11 @@
 # Dryist Functions Changelog
 
+## 0.4.0 - 2018-12-29
+
+### Added
+
+- Add constants for all functions
+
 ## 0.3.0 - 2018-12-29
 
 ### Added

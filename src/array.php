@@ -17,6 +17,7 @@ function count(iterable $items): int
     }
     return $total;
 }
+const count = '\Dryist\count';
 
 /**
  * Combine a list of keys and a list of values into a map.
@@ -32,6 +33,7 @@ function combine(iterable $keys, iterable $values): iterable
         \next($values);
     }
 }
+const combine = '\Dryist\combine';
 
 /**
  * Limit items by a predicate applied to value.
@@ -50,6 +52,7 @@ function filter(iterable $items, callable $accept): iterable
         }
     }
 }
+const filter = '\Dryist\filter';
 
 /**
  * Limit items by a predicate applied to key.
@@ -68,6 +71,7 @@ function filterKey(iterable $items, callable $accept): iterable
         }
     }
 }
+const filterKey = '\Dryist\filterKey';
 
 /**
  * Resolve a list of keys from a map.
@@ -78,6 +82,7 @@ function keys(iterable $items): iterable
         yield $key;
     }
 }
+const keys = '\Dryist\keys';
 
 /**
  * Apply a modifier to every item.
@@ -94,6 +99,7 @@ function map(iterable $items, callable $modify): iterable
         yield $key => $modify($value);
     }
 }
+const map = '\Dryist\map';
 
 /**
  * Apply a modifier to every item with the key.
@@ -110,6 +116,7 @@ function mapBoth(iterable $items, callable $modify): iterable
         yield $key => $modify($key, $value);
     }
 }
+const mapBoth = '\Dryist\mapBoth';
 
 /**
  * Apply a modifier to every item key.
@@ -126,6 +133,7 @@ function mapKey(iterable $items, callable $modify): iterable
         yield $modify($key) => $value;
     }
 }
+const mapKey = '\Dryist\mapKey';
 
 /**
  * Resolve an iterable to an array.
@@ -140,6 +148,7 @@ function resolve(iterable $items): array
 
     return \iterator_to_array($items);
 }
+const resolve = '\Dryist\resolve';
 
 /**
  * Limit items in a map by a list of keys.
@@ -150,6 +159,7 @@ function take(iterable $items, array $keys): iterable
         return \in_array($key, $keys, true);
     });
 }
+const take = '\Dryist\take';
 
 /**
  * Resolve a map into a list.
@@ -160,3 +170,4 @@ function values(iterable $items): iterable
         yield $value;
     }
 }
+const values = '\Dryist\values';

@@ -18,6 +18,7 @@ function always($x): callable
         return $x;
     };
 }
+const always = '\Dryist\always';
 
 /**
  * Create a composition of two modifiers.
@@ -32,6 +33,7 @@ function compose(callable $x, callable $y): callable
         return $x($y($z));
     };
 }
+const compose = '\Dryist\compose';
 
 /**
  * @alias identity()
@@ -40,6 +42,7 @@ function id($x)
 {
     return identity($x);
 }
+const id = '\Dryist\identity';
 
 /**
  * Return any given variable.
@@ -55,6 +58,7 @@ function identity($x)
 {
     return $x;
 }
+const identity = '\Dryist\identity';
 
 /**
  * Create a negated predicate.
@@ -67,3 +71,4 @@ function invert(callable $x): callable
         return ! $x($y);
     };
 }
+const invert = '\Dryist\invert';
